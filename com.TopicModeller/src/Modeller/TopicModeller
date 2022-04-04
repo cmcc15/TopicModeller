@@ -2,6 +2,10 @@ package Modeller;
 
 import java.io.File;
 import java.io.FileNotFoundException;
+import java.io.IOException;
+import java.nio.file.Files;
+import java.nio.file.Paths;
+import java.nio.file.StandardOpenOption;
 import java.util.ArrayList;
 
 import java.util.Scanner;
@@ -75,8 +79,19 @@ public class TopicModeller {
         System.out.println("Unique Values: " + list1);
         //System.out.println("\nSimilar Values: " + list2);
     }
-
-    
+	
+	void Overlap() {
+		
+	}
+	
+	void addStop() {
+	}
+	
+	/*
+	String Display() {
+		return ;
+	}
+    */
 	
 
 }
