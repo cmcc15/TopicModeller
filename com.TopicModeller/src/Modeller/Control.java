@@ -10,7 +10,12 @@ public class Control {
 		
 		handle.toRead();//to read the files
 		handle.Uncommon();//to see uncommonon words
+		handle.Overlap();
+		handle.addStop();
         
+		
+		//GUI modGUI =new GUI();
+		
         	
     }
 
