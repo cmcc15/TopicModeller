@@ -20,6 +20,8 @@ public class Control {
 		handle.Remove();
 		
 		handle.Common();
+		
+		handle.Overlap();
         
 		
 		//GUI modGUI =new GUI();
