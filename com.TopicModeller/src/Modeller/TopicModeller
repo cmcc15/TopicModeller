@@ -80,7 +80,7 @@ public class TopicModeller {
 		
 	}
 	
-	void Common() throws FileNotFoundException {
+	int Common() throws FileNotFoundException {
 		Scanner file1 = new Scanner(new File("Liverpool.txt"));//this is for reading the first file
 		ArrayList<String> list1 = new ArrayList<String>();
 		        
@@ -103,6 +103,13 @@ public class TopicModeller {
 		
 		System.out.println(list1);
 		//System.out.println(list2);
+		
+		int wordcount = 0;
+	    for(String s:list1) {         
+	    	wordcount += s.split(" ").length;
+	    }
+	    
+	    return wordcount;
 	}
         
         
@@ -194,8 +201,19 @@ public class TopicModeller {
     }
 
 	
-	void Overlap() {
+	void Overlap() throws FileNotFoundException {
+		int check;
+		check = Common();
 		
+		System.out.println(check);
+		
+		if (check >= 5) {
+			System.out.println("These files are similar");
+		}
+		else {
+			System.out.println("These files are not similar");
+		}
+			
 	}
 	
 	void addStop() {
@@ -209,3 +227,4 @@ public class TopicModeller {
 	
 
 }
+
