@@ -8,10 +8,15 @@ public class Control {
 		
 		TopicModeller handle = new TopicModeller();
 		
-		handle.toRead();//to read the files
-		handle.Uncommon();//to see uncommonon words
-		handle.Overlap();
-		handle.addStop();
+		//handle.toReadFirst();//to read the files
+		//handle.toReadSecond();
+		
+		handle.toRead();
+		//handle.Uncommon();//to see uncommonon words
+		//handle.Overlap();
+		//handle.addStop();
+		
+		//handle.Common();
         
 		
 		//GUI modGUI =new GUI();
