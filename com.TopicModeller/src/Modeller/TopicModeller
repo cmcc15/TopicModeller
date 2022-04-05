@@ -15,7 +15,7 @@ import java.util.Set;
 public class TopicModeller {
 	
 	
-	int toReadFirst() throws FileNotFoundException{
+	int file1Wordcount() throws FileNotFoundException{
 		
 		Scanner file1 = new Scanner(new File("Liverpool.txt"));//this is for reading the first file
 		ArrayList<String> list = new ArrayList<String>();
@@ -36,7 +36,7 @@ public class TopicModeller {
 	
 	}
 	
-	public int toReadSecond() throws FileNotFoundException{
+	public int file2Wordcount() throws FileNotFoundException{
 		Scanner myScanner = new Scanner(new File("Lakers.txt"));//this is for reading the second file
 		
 		ArrayList<String> list = new ArrayList<String>();
@@ -55,7 +55,7 @@ public class TopicModeller {
 		
 	}
 	
-void toRead() throws FileNotFoundException{
+	void toRead() throws FileNotFoundException{
 		
 		Scanner file1 = new Scanner(new File("Liverpool.txt"));//this is for reading the first file
 		ArrayList<String> list1 = new ArrayList<String>();
@@ -75,77 +75,31 @@ void toRead() throws FileNotFoundException{
 
 		System.out.println(list2);
 		
-		
-		
-	
 	}
 	
 	void Common() throws FileNotFoundException {
-		Scanner list1 = new Scanner(new File("Liverpool.txt"));
-        Scanner list2 = new Scanner(new File("Lakers.txt"));
-        ////////////////////////////////////////////////////////////////////////////////////////////////////
-        Scanner file1 = new Scanner(new File("Liverpool.txt"));//this is for reading the first file
-		ArrayList<String> list4 = new ArrayList<String>();
+		Scanner file1 = new Scanner(new File("Liverpool.txt"));//this is for reading the first file
+		ArrayList<String> list1 = new ArrayList<String>();
 		        
 		while (file1.hasNextLine())
-			list4.add(file1.nextLine());
+			list1.add(file1.nextLine());
 		        
 		    
-		//System.out.println(list);
-        //////////////////////////////////////////////////////////////////////////////////////////////////////
-        Scanner myScanner = new Scanner(new File("Lakers.txt"));//this is for reading the second file
+		//System.out.println(list1);
+		        
+		Scanner myScanner2 = new Scanner(new File("Lakers.txt"));//this is for reading the second file
 		
-		ArrayList<String> list = new ArrayList<String>();
+		ArrayList<String> list2 = new ArrayList<String>();
 		
-		while (myScanner.hasNextLine())
-			list.add(myScanner.nextLine());
+		while (myScanner2.hasNextLine())
+			list2.add(myScanner2.nextLine());
 
-		System.out.println(list);
-        ////////////////////////////////////////////////////////////////////////////////////////////////////////////
-        int num1,num2;
-        
-        num1 = toReadFirst();
-        num2 = toReadSecond();
-        
-        System.out.println("testing:" + num1);
-        System.out.println("testing:" + num2);
-        
-        int i,j,n1,n2;
-        Scanner sc=new Scanner(System.in); //used to read from keyboard
-
-
-        ArrayList<String> a1;
-        int a2[]=new int[num2];
-
-
-        System.out.print("nEnter elements of first array in ascending order:");
-        for(i=0;i<num1;++i)
-        a1 = list;
-
-
-        System.out.print("nEnter elements of second array in ascending order:");
-        for(i=0;i<num2;++i)
-        a2[i]=sc.nextInt();
-
-
-
-/*
-        i=j=0;
-        System.out.print("nIntersection of Arrays: ");
-        while(i<num1&&j<num2) {
-        	if(a1[i]<a2[j])
-        		i++;
-        	else
-        		if(a2[j]<a1[i])
-        			j++;
-        		else
-        		{
-        			System.out.print(a1[i]+" ");
-        			i++;
-        			j++;
-        		}
-        	}
- */
+		//System.out.println(list2);
+		
+		list1.retainAll(list2);
+		
+		System.out.println(list1);
+		//System.out.println(list2);
 	}
         
         
