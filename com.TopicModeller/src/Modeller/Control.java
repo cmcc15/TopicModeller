@@ -22,14 +22,19 @@ public class Control {
 		handle.Common();
 		
 		handle.Overlap();
+		
+		//handle.Add();
+		
+		handle.MostCommon();
         
 		
-		GUI modGUI =new GUI();
+		//GUI modGUI =new GUI();
 		
         	
     }
 
 
 }
+
 
 
