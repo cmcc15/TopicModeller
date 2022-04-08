@@ -250,14 +250,6 @@ public class TopicModeller {
 		}
 	}
 	
-	
-
-	
-	/*
-	String Display() {
-		return ;
-	}
-    */
-	
 
 }
+
