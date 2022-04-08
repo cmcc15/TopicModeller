@@ -24,11 +24,12 @@ public class Control {
 		handle.Overlap();
         
 		
-		//GUI modGUI =new GUI();
+		GUI modGUI =new GUI();
 		
         	
     }
 
 
 }
+
 
