@@ -220,6 +220,18 @@ public class TopicModeller {
 		
 	}
 	
+	void Sort() {
+		
+	}
+	
+	void Save() {
+		
+	}
+	
+	void Add() {
+		
+	}
+	
 	/*
 	String Display() {
 		return ;
@@ -228,4 +240,3 @@ public class TopicModeller {
 	
 
 }
-
