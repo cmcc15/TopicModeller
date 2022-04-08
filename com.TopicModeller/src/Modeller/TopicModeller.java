@@ -10,10 +10,7 @@ import java.nio.file.Files;
 import java.nio.file.Paths;
 import java.nio.file.StandardOpenOption;
 import java.util.ArrayList;
-import java.util.HashSet;
-import java.util.List;
 import java.util.Scanner;
-import java.util.Set;
 
 public class TopicModeller {
 	
@@ -217,6 +214,23 @@ public class TopicModeller {
 	}
 	
 	void MostCommon() throws FileNotFoundException {
+		Scanner file1 = new Scanner(new File("Liverpool.txt"));//this is for reading the first file
+		ArrayList<String> list1 = new ArrayList<String>();
+		        
+		while (file1.hasNextLine())
+			list1.add(file1.nextLine());
+		        
+		Scanner myScanner2 = new Scanner(new File("Lakers.txt"));//this is for reading the second file
+		
+		ArrayList<String> list2 = new ArrayList<String>();
+		
+		while (myScanner2.hasNextLine())
+			list2.add(myScanner2.nextLine());
+		
+		list1.addAll(list2);
+		
+		System.out.println(list1);
+		
 		
 	}
 	
@@ -228,9 +242,16 @@ public class TopicModeller {
 		
 	}
 	
-	void Add() {
-		
+	void Add()  {
+		try {
+		    Files.write(Paths.get("StopWords.txt"), "the text".getBytes(), StandardOpenOption.APPEND);
+		}catch (IOException e) {
+		    //exception handling left as an exercise for the reader
+		}
 	}
+	
+	
+
 	
 	/*
 	String Display() {
