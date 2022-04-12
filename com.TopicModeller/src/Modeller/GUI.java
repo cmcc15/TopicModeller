@@ -5,6 +5,7 @@ import java.awt.FlowLayout;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.io.FileNotFoundException;
+import java.io.IOException;
 
 import javax.swing.JButton;
 import javax.swing.JFrame;
@@ -109,6 +110,17 @@ public class GUI extends JFrame implements ActionListener {
 	
 	@Override
 	public void actionPerformed(ActionEvent e) {
+		if(e.getSource()==button1) {
+			
+		}
+		if(e.getSource()==button2) {
+			try {
+				handle.toRead();
+			} catch (FileNotFoundException e1) {
+				// TODO Auto-generated catch block
+				e1.printStackTrace();
+			}
+		}
 		if(e.getSource()==button3) {
 			//count++;
 			try {
@@ -122,6 +134,24 @@ public class GUI extends JFrame implements ActionListener {
 			System.out.println("The word count of the second document is :" + wordcount2);
 		}
 		
+		if(e.getSource()==button4) {
+			try {
+				handle.Common();
+			} catch (FileNotFoundException e1) {
+				// TODO Auto-generated catch block
+				e1.printStackTrace();
+			}
+		}
+		
+		if(e.getSource()==button5) {
+			try {
+				handle.Uncommon();
+			} catch (FileNotFoundException e1) {
+				// TODO Auto-generated catch block
+				e1.printStackTrace();
+			}
+		}
+		
 		if(e.getSource()==button6) {
 			try {
 				handle.toReadStop();
@@ -129,6 +159,41 @@ public class GUI extends JFrame implements ActionListener {
 				// TODO Auto-generated catch block
 				e1.printStackTrace();
 			}
+		}
+
+		if(e.getSource()==button7) {
+			try {
+				handle.Overlap();
+			} catch (FileNotFoundException e1) {
+				// TODO Auto-generated catch block
+				e1.printStackTrace();
+			}
+		}
+
+		if(e.getSource()==button8) {
+			try {
+				handle.MostCommon();
+			} catch (FileNotFoundException e1) {
+				// TODO Auto-generated catch block
+				e1.printStackTrace();
+			}
+		}
+
+		if(e.getSource()==button9) {
+			try {
+				handle.Sort();
+			} catch (IOException e1) {
+				// TODO Auto-generated catch block
+				e1.printStackTrace();
+			}
+		}
+
+		if(e.getSource()==button10) {
+			handle.Add();
+		}
+
+		if(e.getSource()==button11) {
+			handle.Save();
 		}
 				
 	}//end actionPerformed
