@@ -28,13 +28,13 @@ public class TopicModeller {
 			list.add(file1.nextLine());
 		        
 		    
-		System.out.println(list);
+		//System.out.println(list);
 		
 		int wordcount = 0;
 	    for(String s:list) {         
 	    	wordcount += s.split(" ").length;
 	    }    
-	    System.out.println(wordcount);
+	    //System.out.println(wordcount);
 	    return wordcount;
 	
 	
@@ -48,7 +48,7 @@ public class TopicModeller {
 		while (myScanner.hasNextLine())
 			list.add(myScanner.nextLine());
 
-		System.out.println(list);
+		//System.out.println(list);
 		
 		int wordcount = 0;
 	    for(String s:list) {         
@@ -79,6 +79,18 @@ public class TopicModeller {
 
 		System.out.println(list2);
 		
+	}
+	
+	void toReadStop() throws FileNotFoundException{
+		//list of stop words at https://github.com/igorbrigadir/stopwords/blob/master/en/terrier.txt 
+		
+		Scanner file1 = new Scanner(new File("StopWords.txt"));//this is for reading the first file
+		ArrayList<String> list1 = new ArrayList<String>();
+		        
+		while (file1.hasNextLine())
+			list1.add(file1.nextLine());
+		        
+		System.out.println(list1);
 	}
 	
 	int Common() throws FileNotFoundException {
@@ -304,4 +316,3 @@ public class TopicModeller {
 	
 
 }
-
