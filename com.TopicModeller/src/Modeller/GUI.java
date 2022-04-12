@@ -4,9 +4,11 @@ import java.awt.Color;
 import java.awt.FlowLayout;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.io.FileNotFoundException;
 
 import javax.swing.JButton;
 import javax.swing.JFrame;
+import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.JTextField;
 
@@ -19,6 +21,8 @@ public class GUI extends JFrame implements ActionListener {
 	private JPanel panel1,panel2,panel3,panel4,panel5,panel6,panel7;
 	private JButton button1,button2,button3,button4,button5,button6,button7,button8,button9,button10,button11;
 	private JTextField text1;
+	private int wordcount1,wordcount2;
+	private String test;
 			
 	public GUI() {
 		
@@ -100,10 +104,32 @@ public class GUI extends JFrame implements ActionListener {
 		  	   
 		setVisible(true);//to allow us to see the gui
 	}//end GUI
-
+	
+	TopicModeller handle = new TopicModeller();
+	
 	@Override
 	public void actionPerformed(ActionEvent e) {
+		if(e.getSource()==button3) {
+			//count++;
+			try {
+				wordcount1=handle.file1Wordcount();
+				wordcount2=handle.file2Wordcount();
+			} catch (FileNotFoundException e1) {
+				// TODO Auto-generated catch block
+				e1.printStackTrace();
+			}
+			System.out.println("The word count of the first document is :" + wordcount1);
+			System.out.println("The word count of the second document is :" + wordcount2);
+		}
 		
+		if(e.getSource()==button6) {
+			try {
+				handle.toReadStop();
+			} catch (FileNotFoundException e1) {
+				// TODO Auto-generated catch block
+				e1.printStackTrace();
+			}
+		}
 				
 	}//end actionPerformed
 		
