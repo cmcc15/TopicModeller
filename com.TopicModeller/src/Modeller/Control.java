@@ -17,18 +17,25 @@ public class Control {
 		//handle.Overlap();
 		//handle.addStop();
 		
-		handle.Remove();
+		//handle.Remove();
 		
-		handle.Common();
+		//handle.Common();
 		
-		handle.Overlap();
+		//handle.Overlap();
 		
 		//handle.Add();
 		
-		handle.MostCommon();
+		//handle.MostCommon();
         
+		//handle.Save();
 		
-		//GUI modGUI =new GUI();
+		//handle.Sort();
+		
+		//handle.file1Wordcount();
+		
+		//handle.toReadStop();
+		
+		GUI modGUI =new GUI();
 		
         	
     }
