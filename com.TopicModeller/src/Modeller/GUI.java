@@ -37,15 +37,15 @@ public class GUI extends JFrame implements ActionListener {
 		// create / instantiate the GUI components and add listener
 		button1 = new JButton("Check");//button for checking if the files are similar 
 		button2 = new JButton("Read Documents");//button to see stop words
-		button3 = new JButton("Doc word count");
-		button4 = new JButton("Common Words");
-		button5 = new JButton("Uncommon Words");
+		button3 = new JButton("Doc word count");//button to get word count
+		button4 = new JButton("Common Words");//button to see common words
+		button5 = new JButton("Uncommon Words");//button to see Uncommon words
 		button6 = new JButton("Stop Words");//button to see stop words
-		button7 = new JButton("Overlapping Words");
-		button8 = new JButton("Most Common Words");
-		button9 = new JButton("Filter");
-		button10 = new JButton("Add stop words");
-		button11 = new JButton("Save");
+		button7 = new JButton("Overlapping Words");//button to see Overlapping words
+		button8 = new JButton("Most Common Words");//button to see most common word
+		button9 = new JButton("Filter");//filter will sort the document 
+		button10 = new JButton("Add stop words");//to add a stop word
+		button11 = new JButton("Save");//to save the document
 		
 		text1 = new JTextField("File chooser");//to enter file
 		
@@ -124,9 +124,12 @@ public class GUI extends JFrame implements ActionListener {
 		if(e.getSource()==button3) {
 			//count++;
 			try {
-				wordcount1=handle.file1Wordcount();
-				wordcount2=handle.file2Wordcount();
+				wordcount1=handle.doc1Wordcount();
+				wordcount2=handle.doc2Wordcount();
 			} catch (FileNotFoundException e1) {
+				// TODO Auto-generated catch block
+				e1.printStackTrace();
+			} catch (IOException e1) {
 				// TODO Auto-generated catch block
 				e1.printStackTrace();
 			}
@@ -200,4 +203,4 @@ public class GUI extends JFrame implements ActionListener {
 		
 	
 
-}
+}//end GUI
