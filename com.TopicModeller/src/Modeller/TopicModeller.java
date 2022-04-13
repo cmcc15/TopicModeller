@@ -2,7 +2,6 @@ package Modeller;
 
 import java.io.BufferedReader;
 import java.io.File;
-import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.FileWriter;
@@ -22,7 +21,7 @@ public class TopicModeller {
 	int doc1Wordcount() throws FileNotFoundException{
 		//this method is for count the amount of words in the first document
 		
-		Scanner doc1 = new Scanner(new File("Liverpool.txt"));//this is for reading the first document
+		Scanner doc1 = new Scanner(new File("ChampionsLeague.txt"));//this is for reading the first document
 		ArrayList<String> list1 = new ArrayList<String>();
 		        
 		while (doc1.hasNextLine())
@@ -41,7 +40,7 @@ public class TopicModeller {
 	public int doc2Wordcount() throws IOException{
 		//this method is for count the amount of words in the second document
 		
-		Scanner doc2 = new Scanner(new File("Lakers.txt"));//this is for reading the second document
+		Scanner doc2 = new Scanner(new File("PremierLeague.txt"));//this is for reading the second document
 		
 		ArrayList<String> list2 = new ArrayList<String>();
 		
@@ -61,7 +60,7 @@ public class TopicModeller {
 	
 	void toRead() throws FileNotFoundException{
 		
-		Scanner file1 = new Scanner(new File("Liverpool.txt"));//this is for reading the first document
+		Scanner file1 = new Scanner(new File("ChampionsLeague.txt"));//this is for reading the first document
 		ArrayList<String> list1 = new ArrayList<String>();
 		        
 		while (file1.hasNextLine())
@@ -70,7 +69,7 @@ public class TopicModeller {
 		    
 		System.out.println(list1);//to read contents of the first document
 		        
-		Scanner myScanner2 = new Scanner(new File("Lakers.txt"));//this is for reading the second document
+		Scanner myScanner2 = new Scanner(new File("PremierLeague.txt"));//this is for reading the second document
 		
 		ArrayList<String> list2 = new ArrayList<String>();
 		
@@ -96,13 +95,13 @@ public class TopicModeller {
 	int Common() throws FileNotFoundException {
 		//to gets the contents of the two documents that match
 		
-		Scanner file1 = new Scanner(new File("Liverpool.txt"));
+		Scanner file1 = new Scanner(new File("ChampionsLeague.txt"));
 		ArrayList<String> list1 = new ArrayList<String>();
 		        
 		while (file1.hasNextLine())
 			list1.add(file1.nextLine());
 		        
-		Scanner myScanner2 = new Scanner(new File("Lakers.txt"));
+		Scanner myScanner2 = new Scanner(new File("PremierLeague.txt"));
 		
 		ArrayList<String> list2 = new ArrayList<String>();
 		
@@ -126,8 +125,8 @@ public class TopicModeller {
 	void Uncommon() throws FileNotFoundException {
 		//to get the uncommon words from the two documents
 		
-		Scanner input = new Scanner(new File("Liverpool.txt"));
-        Scanner scan = new Scanner(new File("Lakers.txt"));
+		Scanner input = new Scanner(new File("ChampionsLeague.txt"));
+        Scanner scan = new Scanner(new File("PremierLeague.txt"));
 
         ArrayList<String> list1 = new ArrayList<String>();
         ArrayList<String> list2 = new ArrayList<String>();
@@ -160,9 +159,9 @@ public class TopicModeller {
 	
 	void Remove () throws IOException {
 		//to remove stop words from the documents 
-        PrintWriter pw = new PrintWriter("Lakers.txt");
+        PrintWriter pw = new PrintWriter("PremierLeague.txt");
           
-        BufferedReader br1 = new BufferedReader(new FileReader("Liverpool.txt"));
+        BufferedReader br1 = new BufferedReader(new FileReader("ChampionsLeague.txt"));
           
         String line1 = br1.readLine();
           
@@ -220,13 +219,13 @@ public class TopicModeller {
 	
 	void MostCommon() throws FileNotFoundException {
 		//to find the most common words from the two documents
-		Scanner file1 = new Scanner(new File("Liverpool.txt"));
+		Scanner file1 = new Scanner(new File("ChampionsLeague.txt"));
 		ArrayList<String> list1 = new ArrayList<String>();
 		        
 		while (file1.hasNextLine())
 			list1.add(file1.nextLine());
 		        
-		Scanner myScanner2 = new Scanner(new File("Lakers.txt"));
+		Scanner myScanner2 = new Scanner(new File("PremierLeague.txt"));
 		
 		ArrayList<String> list2 = new ArrayList<String>();
 		
@@ -243,8 +242,8 @@ public class TopicModeller {
 		//sort the document
 		
 		//sorts Alphabetically     
-		String inputFile = "Lakers.txt";
-		String outputFile = "Lakers.txt";
+		String inputFile = "PremierLeague.txt";
+		String outputFile = "PremierLeague.txt";
 
 		FileReader fileReader = new FileReader(inputFile);
 		BufferedReader bufferedReader = new BufferedReader(fileReader);
@@ -279,7 +278,7 @@ public class TopicModeller {
 		    fileWriter.write(fileContent);
 		    fileWriter.close();
 		} catch (IOException e) {
-		    // Cxception handling
+		    // Exception handling
 		}
 
 		// Read the content from file
