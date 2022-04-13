@@ -10,7 +10,6 @@ import java.io.PrintWriter;
 import java.nio.file.Files;
 import java.nio.file.Paths;
 import java.nio.file.StandardOpenOption;
-import java.text.Collator;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
@@ -19,29 +18,29 @@ import java.util.Scanner;
 public class TopicModeller {
 	
 	
-	int file1Wordcount() throws FileNotFoundException{
+	int doc1Wordcount() throws FileNotFoundException{
+		//this method is for count the amount of words in the first document
 		
-		Scanner file1 = new Scanner(new File("Liverpool.txt"));//this is for reading the first file
+		Scanner file1 = new Scanner(new File("Liverpool.txt"));//this is for reading the first document
 		ArrayList<String> list = new ArrayList<String>();
 		        
 		while (file1.hasNextLine())
 			list.add(file1.nextLine());
-		        
-		    
-		//System.out.println(list);
 		
 		int wordcount = 0;
 	    for(String s:list) {         
 	    	wordcount += s.split(" ").length;
-	    }    
-	    //System.out.println(wordcount);
+	    }    //to get word count
+	    
 	    return wordcount;
 	
 	
-	}
+	}//end file1Wordcount
 	
-	public int file2Wordcount() throws FileNotFoundException{
-		Scanner myScanner = new Scanner(new File("Lakers.txt"));//this is for reading the second file
+	public int doc2Wordcount() throws FileNotFoundException{
+		//this method is for count the amount of words in the second document
+		
+		Scanner myScanner = new Scanner(new File("Lakers.txt"));//this is for reading the second document
 		
 		ArrayList<String> list = new ArrayList<String>();
 		
@@ -53,31 +52,31 @@ public class TopicModeller {
 		int wordcount = 0;
 	    for(String s:list) {         
 	    	wordcount += s.split(" ").length;
-	    }
+	    } //to get word count
 	    
 	    return wordcount;
 		
-	}
+	}//end file2Wordcount
 	
 	void toRead() throws FileNotFoundException{
 		
-		Scanner file1 = new Scanner(new File("Liverpool.txt"));//this is for reading the first file
+		Scanner file1 = new Scanner(new File("Liverpool.txt"));//this is for reading the first document
 		ArrayList<String> list1 = new ArrayList<String>();
 		        
 		while (file1.hasNextLine())
 			list1.add(file1.nextLine());
 		        
 		    
-		System.out.println(list1);
+		System.out.println(list1);//to read contents of the first document
 		        
-		Scanner myScanner2 = new Scanner(new File("Lakers.txt"));//this is for reading the second file
+		Scanner myScanner2 = new Scanner(new File("Lakers.txt"));//this is for reading the second document
 		
 		ArrayList<String> list2 = new ArrayList<String>();
 		
 		while (myScanner2.hasNextLine())
 			list2.add(myScanner2.nextLine());
 
-		System.out.println(list2);
+		System.out.println(list2);//to read contents of the second document
 		
 	}
 	
