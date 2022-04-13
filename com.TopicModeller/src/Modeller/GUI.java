@@ -8,10 +8,12 @@ import java.io.FileNotFoundException;
 import java.io.IOException;
 
 import javax.swing.JButton;
+import javax.swing.JFileChooser;
 import javax.swing.JFrame;
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.JTextField;
+import javax.swing.filechooser.FileSystemView;
 
 public class GUI extends JFrame implements ActionListener {
 	/*
@@ -20,7 +22,7 @@ public class GUI extends JFrame implements ActionListener {
 	 */
 	
 	private JPanel panel1,panel2,panel3,panel4,panel5,panel6,panel7;
-	private JButton button1,button2,button3,button4,button5,button6,button7,button8,button9,button10,button11;
+	private JButton FC1, FC2, button1,button2,button3,button4,button5,button6,button7,button8,button9,button10,button11;
 	private JTextField text1;
 	private int wordcount1,wordcount2;
 	private String test;
@@ -35,6 +37,8 @@ public class GUI extends JFrame implements ActionListener {
 			
 			
 		// create / instantiate the GUI components and add listener
+		FC1 = new JButton("First Chooser");//to select a document
+		FC2 = new JButton("Second Chooser");//to select a document
 		button1 = new JButton("Check");//button for checking if the files are similar 
 		button2 = new JButton("Read Documents");//button to see stop words
 		button3 = new JButton("Doc word count");//button to get word count
@@ -51,7 +55,8 @@ public class GUI extends JFrame implements ActionListener {
 		
 		panel1 = new JPanel();
 		panel1.setBackground(Color.green);//set background colour of panel to green
-		panel1.add(text1);
+		panel1.add(FC1);
+		panel1.add(FC2);
 		add(panel1);//to add panel
 		
 		panel2 = new JPanel();
@@ -91,6 +96,8 @@ public class GUI extends JFrame implements ActionListener {
 		add(panel7);//to add panel
 		
 		//for adding actions to the buttons
+		FC1.addActionListener(this);
+		FC2.addActionListener(this);
 		button1.addActionListener(this);
 		button2.addActionListener(this);
 		button3.addActionListener(this);
@@ -110,6 +117,18 @@ public class GUI extends JFrame implements ActionListener {
 	
 	@Override
 	public void actionPerformed(ActionEvent e) {
+		if(e.getSource()==FC1) {
+			JFileChooser j = new JFileChooser(FileSystemView.getFileSystemView());
+			 
+			// Open the save dialog
+			 j.showSaveDialog(null);
+		}
+		if(e.getSource()==FC2) {
+			JFileChooser j = new JFileChooser(FileSystemView.getFileSystemView());
+			 
+			// Open the save dialog
+			 j.showSaveDialog(null);
+		}
 		if(e.getSource()==button1) {
 			
 		}
