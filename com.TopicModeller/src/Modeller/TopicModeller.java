@@ -2,6 +2,7 @@ package Modeller;
 
 import java.io.BufferedReader;
 import java.io.File;
+import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.FileWriter;
@@ -21,40 +22,40 @@ public class TopicModeller {
 	int doc1Wordcount() throws FileNotFoundException{
 		//this method is for count the amount of words in the first document
 		
-		Scanner file1 = new Scanner(new File("Liverpool.txt"));//this is for reading the first document
-		ArrayList<String> list = new ArrayList<String>();
+		Scanner doc1 = new Scanner(new File("Liverpool.txt"));//this is for reading the first document
+		ArrayList<String> list1 = new ArrayList<String>();
 		        
-		while (file1.hasNextLine())
-			list.add(file1.nextLine());
+		while (doc1.hasNextLine())
+			list1.add(doc1.nextLine());
 		
-		int wordcount = 0;
-	    for(String s:list) {         
-	    	wordcount += s.split(" ").length;
+		int wordcount1 = 0;
+	    for(String s:list1) {         
+	    	wordcount1 += s.split(" ").length;
 	    }    //to get word count
 	    
-	    return wordcount;
+	    return wordcount1;
 	
 	
 	}//end file1Wordcount
 	
-	public int doc2Wordcount() throws FileNotFoundException{
+	public int doc2Wordcount() throws IOException{
 		//this method is for count the amount of words in the second document
 		
-		Scanner myScanner = new Scanner(new File("Lakers.txt"));//this is for reading the second document
+		Scanner doc2 = new Scanner(new File("Lakers.txt"));//this is for reading the second document
 		
-		ArrayList<String> list = new ArrayList<String>();
+		ArrayList<String> list2 = new ArrayList<String>();
 		
-		while (myScanner.hasNextLine())
-			list.add(myScanner.nextLine());
+		while (doc2.hasNextLine())
+			list2.add(doc2.nextLine());
 
 		//System.out.println(list);
 		
-		int wordcount = 0;
-	    for(String s:list) {         
-	    	wordcount += s.split(" ").length;
+		int wordcount2 = 0;
+	    for(String s:list2) {         
+	    	wordcount2 += s.split(" ").length;
 	    } //to get word count
-	    
-	    return wordcount;
+		
+	    return wordcount2;
 		
 	}//end file2Wordcount
 	
@@ -78,43 +79,39 @@ public class TopicModeller {
 
 		System.out.println(list2);//to read contents of the second document
 		
-	}
+	}//end toRead
 	
 	void toReadStop() throws FileNotFoundException{
 		//list of stop words at https://github.com/igorbrigadir/stopwords/blob/master/en/terrier.txt 
 		
-		Scanner file1 = new Scanner(new File("StopWords.txt"));//this is for reading the first file
+		Scanner file1 = new Scanner(new File("StopWords.txt"));//this is for reading the Stop Words
 		ArrayList<String> list1 = new ArrayList<String>();
 		        
 		while (file1.hasNextLine())
 			list1.add(file1.nextLine());
 		        
-		System.out.println(list1);
-	}
+		System.out.println(list1);//to print the stop Words
+	}//end toReadStop
 	
 	int Common() throws FileNotFoundException {
-		Scanner file1 = new Scanner(new File("Liverpool.txt"));//this is for reading the first file
+		//to gets the contents of the two documents that match
+		
+		Scanner file1 = new Scanner(new File("Liverpool.txt"));
 		ArrayList<String> list1 = new ArrayList<String>();
 		        
 		while (file1.hasNextLine())
 			list1.add(file1.nextLine());
 		        
-		    
-		//System.out.println(list1);
-		        
-		Scanner myScanner2 = new Scanner(new File("Lakers.txt"));//this is for reading the second file
+		Scanner myScanner2 = new Scanner(new File("Lakers.txt"));
 		
 		ArrayList<String> list2 = new ArrayList<String>();
 		
 		while (myScanner2.hasNextLine())
 			list2.add(myScanner2.nextLine());
-
-		//System.out.println(list2);
 		
 		list1.retainAll(list2);
 		
 		System.out.println(list1);
-		//System.out.println(list2);
 		
 		int wordcount = 0;
 	    for(String s:list1) {         
@@ -122,11 +119,13 @@ public class TopicModeller {
 	    }
 	    
 	    return wordcount;
-	}
+	}//end Common
         
         
 	
 	void Uncommon() throws FileNotFoundException {
+		//to get the uncommon words from the two documents
+		
 		Scanner input = new Scanner(new File("Liverpool.txt"));
         Scanner scan = new Scanner(new File("Lakers.txt"));
 
@@ -135,73 +134,63 @@ public class TopicModeller {
 
         while (input.hasNext()) {
             list1.add(input.next());
-        }
+        }//end while
 
         while (scan.hasNext()) {
             list2.add(scan.next());
-        }
+        }//end while
 
-        // iterate over list 1
+        //used to get the words that do not match 
         for (int i = list1.size() - 1; i >= 0; i--) {
-            // if there is a occurence of two identical strings
             if (list2.contains(list1.get(i))) {
-                // remove the String from list 2
                 list2.remove(list2.indexOf(list1.get(i)));
-                // remove the String from list 1
                 list1.remove(i);
             }
         }
 
-        // merge the lists
+        // merge the two documents
         list1.addAll(list2);
 
-        // remove full stops
+        // to remove full stops
         for (int i = 0; i < list1.size(); i++) {
             list1.set(i, list1.get(i).replace(".", ""));
         }
         System.out.println("Unique Values: " + list1);
-        //System.out.println("\nSimilar Values: " + list2);
     }
 	
 	void Remove () throws IOException {
-		// PrintWriter object for output.txt
+		//to remove stop words from the documents 
         PrintWriter pw = new PrintWriter("Lakers.txt");
           
-        // BufferedReader object for input.txt
         BufferedReader br1 = new BufferedReader(new FileReader("Liverpool.txt"));
           
         String line1 = br1.readLine();
           
-        // loop for each line of input.txt
         while(line1 != null)
         {
             boolean flag = false;
               
-            // BufferedReader object for delete.txt
             BufferedReader br2 = new BufferedReader(new FileReader("StopWords.txt"));
               
             String line2 = br2.readLine();
               
-            // loop for each line of delete.txt
             while(line2 != null)
             {
                 if(line1.equals(line2))
                 {
                     flag = true;
                     break;
-                }
+                }//end if 
                   
                 line2 = br2.readLine();
-            }
+            }//end while
               
-            // if flag = false
-            // write line of input.txt to output.txt
             if(!flag)
                 pw.println(line1);
               
             line1 = br1.readLine();
               
-        }
+        }//end while
           
         pw.flush();
           
@@ -209,11 +198,12 @@ public class TopicModeller {
         br1.close();
         pw.close();
           
-        System.out.println("File operation performed successfully");
-    }
+        System.out.println("File operation was successful");
+    }//end Remove 
 
 	
 	void Overlap() throws FileNotFoundException {
+		//to check for overlapping words
 		int check;
 		check = Common();
 		
@@ -221,21 +211,22 @@ public class TopicModeller {
 		
 		if (check >= 5) {
 			System.out.println("These files are similar");
-		}
+		}//end if 
 		else {
 			System.out.println("These files are not similar");
-		}
+		}//end else 
 			
-	}
+	}//end Overlap
 	
 	void MostCommon() throws FileNotFoundException {
-		Scanner file1 = new Scanner(new File("Liverpool.txt"));//this is for reading the first file
+		//to find the most common words from the two documents
+		Scanner file1 = new Scanner(new File("Liverpool.txt"));
 		ArrayList<String> list1 = new ArrayList<String>();
 		        
 		while (file1.hasNextLine())
 			list1.add(file1.nextLine());
 		        
-		Scanner myScanner2 = new Scanner(new File("Lakers.txt"));//this is for reading the second file
+		Scanner myScanner2 = new Scanner(new File("Lakers.txt"));
 		
 		ArrayList<String> list2 = new ArrayList<String>();
 		
@@ -246,10 +237,10 @@ public class TopicModeller {
 		
 		System.out.println(list1);
 		
-		
 	}
 	
 	void Sort() throws IOException {
+		//sort the document
 		
 		//sorts Alphabetically     
 		String inputFile = "Lakers.txt";
@@ -275,7 +266,7 @@ public class TopicModeller {
 		out.close();
 		fileWriter.close();
 		
-	}
+	}//end Sort
 	
 	void Save() {
 		String directory = System.getProperty("user.home");
@@ -293,25 +284,26 @@ public class TopicModeller {
 
 		// Read the content from file
 		try(FileReader fileReader = new FileReader(absolutePath)) {
-		    int ch = fileReader.read();
-		    while(ch != -1) {
-		        System.out.print((char)ch);
+		    int read = fileReader.read();
+		    while(read != -1) {
+		        System.out.print((char)read);
 		        fileReader.close();
-		    }
+		    }//end while
 		} catch (FileNotFoundException e) {
-		    // Exception handling
+		    
 		} catch (IOException e) {
-		    // Exception handling
+			
 		}
-	}
+	}//end Save
 	
 	void Add()  {
+		//to add to StopWords
 		try {
 		    Files.write(Paths.get("StopWords.txt"), "the text".getBytes(), StandardOpenOption.APPEND);
 		}catch (IOException e) {
 		    //exception handling left as an exercise for the reader
 		}
-	}
+	}//end Add
 	
 
-}
+}//end TopicModeller
