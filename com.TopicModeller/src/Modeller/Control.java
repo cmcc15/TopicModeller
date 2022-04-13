@@ -8,10 +8,10 @@ public class Control {
 		
 		TopicModeller handle = new TopicModeller();
 		
-		GUI modGUI =new GUI();
+		GUI modGUI =new GUI();//to run the GUI
 		
         	
-    }
+    }//end main
 
 
-}
+}//end Control
