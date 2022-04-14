@@ -15,8 +15,9 @@ import java.util.Collections;
 import java.util.List;
 import java.util.Scanner;
 
+
+
 public class TopicModeller {
-	
 	
 	int doc1Wordcount() throws FileNotFoundException{
 		//this method is for count the amount of words in the first document
@@ -157,6 +158,63 @@ public class TopicModeller {
         System.out.println("Unique Values: " + list1);
     }
 	
+	void Similar() throws FileNotFoundException {
+		//This method is for finding out if the documents are about a similar topic
+		Scanner doc1 = new Scanner(new File("ChampionsLeague.txt"));//this is for reading the first document
+		ArrayList<String> list1 = new ArrayList<String>();
+		        
+		while (doc1.hasNextLine())
+			list1.add(doc1.nextLine());
+		
+		int wordcount1 = 0;
+	    for(String s:list1) {         
+	    	wordcount1 += s.split(" ").length;
+	    }    //to get word count
+	    
+	    Scanner doc2 = new Scanner(new File("PremierLeague.txt"));//this is for reading the second document
+		
+		ArrayList<String> list2 = new ArrayList<String>();
+		
+		while (doc2.hasNextLine())
+			list2.add(doc2.nextLine());
+
+		//System.out.println(list);
+		
+		int wordcount2 = 0;
+	    for(String s:list2) {         
+	    	wordcount2 += s.split(" ").length;
+	    } //to get word count
+	   
+		Scanner file1 = new Scanner(new File("ChampionsLeague.txt"));
+	  	ArrayList<String> list3 = new ArrayList<String>();
+	  		        
+	  	while (file1.hasNextLine())
+	  		list3.add(file1.nextLine());
+	  		        
+	  	Scanner myScanner2 = new Scanner(new File("PremierLeague.txt"));
+	  		
+	  	ArrayList<String> list4 = new ArrayList<String>();
+	  		
+	  	while (myScanner2.hasNextLine())
+	  		list4.add(myScanner2.nextLine());
+	  		
+	  	list3.retainAll(list4);
+	  		
+	  	int wordcount = 0;
+	  	for(String s:list3) {
+	  		wordcount += s.split(" ").length;
+	  	}
+	  	
+	  	if (wordcount>=wordcount1+wordcount2) {
+	  		System.out.println("These documents are about a similar topic");
+	  	}
+	  	else {
+	  		System.out.println("These documents are not about a similar topic");
+	  	}
+	    
+		
+	}
+	
 	void Remove () throws IOException {
 		//to remove stop words from the documents 
         PrintWriter pw = new PrintWriter("PremierLeague.txt");
@@ -266,6 +324,7 @@ public class TopicModeller {
 		fileWriter.close();
 		
 	}//end Sort
+	
 	
 	void Save() {
 		String directory = System.getProperty("user.home");
