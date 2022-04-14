@@ -117,20 +117,13 @@ public class GUI extends JFrame implements ActionListener {
 	
 	@Override
 	public void actionPerformed(ActionEvent e) {
-		if(e.getSource()==FC1) {
-			JFileChooser j = new JFileChooser(FileSystemView.getFileSystemView());
-			 
-			// Open the save dialog
-			 j.showSaveDialog(null);
-		}
-		if(e.getSource()==FC2) {
-			JFileChooser j = new JFileChooser(FileSystemView.getFileSystemView());
-			 
-			// Open the save dialog
-			 j.showSaveDialog(null);
-		}
 		if(e.getSource()==button1) {
-			
+			try {
+				handle.Similar();
+			} catch (FileNotFoundException e1) {
+				// TODO Auto-generated catch block
+				e1.printStackTrace();
+			}
 		}
 		if(e.getSource()==button2) {
 			try {
