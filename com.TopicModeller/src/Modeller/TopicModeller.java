@@ -18,6 +18,10 @@ import java.util.Scanner;
 
 
 public class TopicModeller {
+	/*
+	 * This is a class that contains a series of different methods
+	 * These methods are used to carry out different checks on two separate documents
+	 */
 	
 	int doc1Wordcount() throws FileNotFoundException{
 		//this method is for count the amount of words in the first document
