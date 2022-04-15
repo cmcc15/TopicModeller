@@ -19,3 +19,11 @@ Tottenham Hotspur
 Watford
 West Ham United
 Wolverhampton Wanderers
+
+These teams will all play against each other to determine a winner.
+Previous winners over the last five seasons are :
+Manchester City,
+Liverpool,
+Manchester City,
+Manchester City,
+Chelsea,
