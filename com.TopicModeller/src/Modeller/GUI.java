@@ -8,12 +8,9 @@ import java.io.FileNotFoundException;
 import java.io.IOException;
 
 import javax.swing.JButton;
-import javax.swing.JFileChooser;
 import javax.swing.JFrame;
-import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.JTextField;
-import javax.swing.filechooser.FileSystemView;
 
 public class GUI extends JFrame implements ActionListener {
 	/*
@@ -21,24 +18,21 @@ public class GUI extends JFrame implements ActionListener {
 	 * It will give us options to pick a file and check if they're similar or not
 	 */
 	
-	private JPanel panel1,panel2,panel3,panel4,panel5,panel6,panel7;
-	private JButton FC1, FC2, button1,button2,button3,button4,button5,button6,button7,button8,button9,button10,button11;
+	private JPanel panel1,panel2,panel3,panel4,panel5,panel6;
+	private JButton button1,button2,button3,button4,button5,button6,button7,button8,button9,button10,button11;
 	private JTextField text1;
 	private int wordcount1,wordcount2;
-	private String test;
 			
 	public GUI() {
 		
 		setTitle("Topic Modeller");//to name the GUI
-		setSize(250,400);//set width
+		setSize(300,400);//set width
 		setLayout(new FlowLayout());
 		getContentPane().setBackground(Color.blue);//set background colour
 
 			
 			
 		// create / instantiate the GUI components and add listener
-		FC1 = new JButton("First Chooser");//to select a document
-		FC2 = new JButton("Second Chooser");//to select a document
 		button1 = new JButton("Check");//button for checking if the files are similar 
 		button2 = new JButton("Read Documents");//button to see stop words
 		button3 = new JButton("Doc word count");//button to get word count
@@ -49,55 +43,48 @@ public class GUI extends JFrame implements ActionListener {
 		button8 = new JButton("Most Common Words");//button to see most common word
 		button9 = new JButton("Filter");//filter will sort the document 
 		button10 = new JButton("Add stop words");//to add a stop word
-		button11 = new JButton("Save");//to save the document
+		button11 = new JButton("Remove stop words");//to save the document
 		
 		text1 = new JTextField("File chooser");//to enter file
 		
+		
 		panel1 = new JPanel();
-		panel1.setBackground(Color.green);//set background colour of panel to green
-		panel1.add(FC1);
-		panel1.add(FC2);
+		panel1.setBackground(Color.yellow);//set background colour of panel to yellow
+		panel1.add(button1);
+		panel1.add(button2);
 		add(panel1);//to add panel
 		
 		panel2 = new JPanel();
-		panel2.setBackground(Color.yellow);//set background colour of panel to yellow
-		panel2.add(button1);
-		panel2.add(button2);
+		panel2.setBackground(Color.green);//set background colour of panel to green
+		panel2.add(button3);
+		panel2.add(button4);
 		add(panel2);//to add panel
 		
 		panel3 = new JPanel();
-		panel3.setBackground(Color.green);//set background colour of panel to green
-		panel3.add(button3);
-		panel3.add(button4);
+		panel3.setBackground(Color.yellow);//set background colour of panel to yellow
+		panel3.add(button5);
+		panel3.add(button6);
 		add(panel3);//to add panel
 		
+		
 		panel4 = new JPanel();
-		panel4.setBackground(Color.yellow);//set background colour of panel to yellow
-		panel4.add(button5);
-		panel4.add(button6);
+		panel4.setBackground(Color.green);//set background colour of panel to green
+		panel4.add(button7);
+		panel4.add(button8);
 		add(panel4);//to add panel
 		
-		
 		panel5 = new JPanel();
-		panel5.setBackground(Color.green);//set background colour of panel to green
-		panel5.add(button7);
-		panel5.add(button8);
+		panel5.setBackground(Color.yellow);//set background colour of panel to yellow
+		panel5.add(button9);
+		panel5.add(button10);
 		add(panel5);//to add panel
 		
 		panel6 = new JPanel();
-		panel6.setBackground(Color.yellow);//set background colour of panel to yellow
-		panel6.add(button9);
-		panel6.add(button10);
+		panel6.setBackground(Color.green);//set background colour of panel to green
+		panel6.add(button11);
 		add(panel6);//to add panel
 		
-		panel7 = new JPanel();
-		panel7.setBackground(Color.green);//set background colour of panel to green
-		panel7.add(button11);
-		add(panel7);//to add panel
-		
 		//for adding actions to the buttons
-		FC1.addActionListener(this);
-		FC2.addActionListener(this);
 		button1.addActionListener(this);
 		button2.addActionListener(this);
 		button3.addActionListener(this);
@@ -118,6 +105,7 @@ public class GUI extends JFrame implements ActionListener {
 	@Override
 	public void actionPerformed(ActionEvent e) {
 		if(e.getSource()==button1) {
+			//for checking if the documents are similar
 			try {
 				handle.Similar();
 			} catch (FileNotFoundException e1) {
@@ -126,6 +114,7 @@ public class GUI extends JFrame implements ActionListener {
 			}
 		}
 		if(e.getSource()==button2) {
+			//for readding the documents
 			try {
 				handle.toRead();
 			} catch (FileNotFoundException e1) {
@@ -134,7 +123,7 @@ public class GUI extends JFrame implements ActionListener {
 			}
 		}
 		if(e.getSource()==button3) {
-			//count++;
+			//check the document word count
 			try {
 				wordcount1=handle.doc1Wordcount();
 				wordcount2=handle.doc2Wordcount();
@@ -150,6 +139,7 @@ public class GUI extends JFrame implements ActionListener {
 		}
 		
 		if(e.getSource()==button4) {
+			//to see common words 
 			try {
 				handle.Common();
 			} catch (FileNotFoundException e1) {
@@ -159,6 +149,7 @@ public class GUI extends JFrame implements ActionListener {
 		}
 		
 		if(e.getSource()==button5) {
+			//to see uncommon words 
 			try {
 				handle.Uncommon();
 			} catch (FileNotFoundException e1) {
@@ -168,6 +159,7 @@ public class GUI extends JFrame implements ActionListener {
 		}
 		
 		if(e.getSource()==button6) {
+			//to see stop words
 			try {
 				handle.toReadStop();
 			} catch (FileNotFoundException e1) {
@@ -177,6 +169,7 @@ public class GUI extends JFrame implements ActionListener {
 		}
 
 		if(e.getSource()==button7) {
+			//to see overlapping words - gives a shorter breakdown if the files are similar 
 			try {
 				handle.Overlap();
 			} catch (FileNotFoundException e1) {
@@ -186,17 +179,29 @@ public class GUI extends JFrame implements ActionListener {
 		}
 
 		if(e.getSource()==button8) {
+			//to see most common words
 			try {
 				handle.MostCommon();
-			} catch (FileNotFoundException e1) {
+			} catch (IOException e1) {
 				// TODO Auto-generated catch block
 				e1.printStackTrace();
 			}
+			
+			
+			
 		}
 
 		if(e.getSource()==button9) {
+			//to filter the documents alaphabetically
 			try {
-				handle.Sort();
+				handle.Sort1();
+			} catch (IOException e1) {
+				// TODO Auto-generated catch block
+				e1.printStackTrace();
+			}
+			
+			try {
+				handle.Sort2();
 			} catch (IOException e1) {
 				// TODO Auto-generated catch block
 				e1.printStackTrace();
@@ -204,11 +209,18 @@ public class GUI extends JFrame implements ActionListener {
 		}
 
 		if(e.getSource()==button10) {
+			//to add a stop word
 			handle.Add();
 		}
-
+		
 		if(e.getSource()==button11) {
-			handle.Save();
+			//to remove stop words
+			try {
+				handle.Remove();
+			} catch (IOException e1) {
+				// TODO Auto-generated catch block
+				e1.printStackTrace();
+			}
 		}
 				
 	}//end actionPerformed
