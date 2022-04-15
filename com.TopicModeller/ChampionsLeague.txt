@@ -1,4 +1,4 @@
-List of the Chhampions league teams :
+List of the Champions league teams :
 Manchester City,	
 Paris Saint-Germain,
 Liverpool FC,
@@ -30,4 +30,12 @@ Besiktas,
 Dynamo Kyiv,
 BSC Young Boys,
 Malmö FF,
-FC Sheriff Tiraspol.
+FC Sheriff Tiraspol
+
+These teams will all play against each other to determine a winner.
+Previous winners over the last five seasons are :
+Chelsea,
+Bayern Munich,
+Liverpool,
+Real Madrid,
+Real Madrid,
